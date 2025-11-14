@@ -37,21 +37,21 @@ async function fetchTaiwanCashSellRate() {
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, "text/html");
 
-    let usdRow = null;
+    let cadRow = null;
     const rows = doc.querySelectorAll("tr");
 
     for (const row of rows) {
       const cells = row.querySelectorAll("td");
       const firstCell = cells[0]?.textContent?.trim() || "";
-      if (firstCell.includes("美元") || firstCell.includes("USD")) {
-        usdRow = row;
+      if (firstCell.includes("加拿大元") || firstCell.includes("CAD")) {
+        cadRow = row;
         break;
       }
     }
 
-    if (!usdRow) throw new Error("找不到美元匯率行");
+    if (!cadRow) throw new Error("找不到加拿大元匯率資料");
 
-    const cells = usdRow.querySelectorAll("td");
+    const cells = cadRow.querySelectorAll("td");
     const cashSellText = cells[2]?.textContent?.trim();
 
     if (!cashSellText || isNaN(parseFloat(cashSellText))) {
@@ -63,7 +63,7 @@ async function fetchTaiwanCashSellRate() {
     console.log(`成功取得美元現金賣出匯率: ${rate}`);
   } catch (error) {
     console.error("抓取匯率失敗：", error);
-    const fallbackRate = prompt("無法自動取得匯率，請手動輸入現金賣出匯率（如 32.80）：");
+    const fallbackRate = prompt("無法自動取得匯率，請手動輸入現金賣出匯率（如 22.5）：");
     if (fallbackRate && !isNaN(fallbackRate)) {
       exchangeInput.value = parseFloat(fallbackRate).toFixed(2);
     } else {
@@ -74,22 +74,17 @@ async function fetchTaiwanCashSellRate() {
 }
 
 function calculate() {
-  const usdPrice = parseFloat(document.getElementById("usdPrice").value);
+  const cadPrice = parseFloat(document.getElementById("cadPrice").value);
   const exchangeRate = parseFloat(document.getElementById("exchangeRate").value);
-  const shippingFee = 60;
 
-  if (isNaN(usdPrice) || isNaN(exchangeRate)) {
+  if (isNaN(cadPrice) || isNaN(exchangeRate)) {
     alert("請輸入正確的商品金額或等待匯率載入完成");
     return;
   }
 
-  const stage1 = usdPrice * exchangeRate * 1.2;
-  const total = stage1 + shippingFee;
-  const roundedStage1 = Math.ceil(stage1); // 無條件進位
+  const roundedTotal = Math.ceil(cadPrice * exchangeRate * 1.15); // 含5%稅與10%代購費，無條件進位
 
-  document.getElementById("stage1").innerText = roundedStage1.toLocaleString();
-  document.getElementById("stage2").innerText = shippingFee.toLocaleString();
-  document.getElementById("total").innerText = Math.ceil(total).toLocaleString();
+  document.getElementById("total").innerText = roundedTotal.toLocaleString();
   document.getElementById("result").style.display = "block";
 }
 

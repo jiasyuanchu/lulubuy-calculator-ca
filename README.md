@@ -1,26 +1,21 @@
-# 🇺🇸 Lululemon US Proxy Purchase Estimator
+# 🇺🇸 Lululemon CA Proxy Purchase Estimator
 
-This is a lightweight frontend tool to help estimate the **total cost of purchasing Lululemon products from the US** through a proxy (代購). It’s perfect for IG sellers, side hustlers, or anyone helping friends buy overseas.
+This is a lightweight frontend tool to help estimate the **total cost of purchasing Lululemon products from the CA** through a proxy (代購). It’s perfect for IG sellers, side hustlers, or anyone helping friends buy overseas.
 
 ## ✨ Features
 
-- ✅ **Auto-loads live USD to TWD exchange rates**
+- ✅ **Auto-loads live CAD to TWD exchange rates**
   - Primary source: Taiwan government open data API
   - Fallback: Parses data from Bank of Taiwan’s website (via multiple CORS proxies)
-- 💰 **Applies a 1.2x service fee** to item price
-- 🚚 **Estimates 2nd-stage local shipping cost** (default: NT$60)
+- 💰 **Applies a 10% service fee** to item price
+- 🚚 **Estimates 2nd-stage local shipping cost** (default: NT$60~150)
 - 🔁 One-click to reload exchange rate
 - ✍️ Exchange rate field can be edited manually (double-click to unlock)
-
-## 🧮 Calculation Formula
-
-
-> Note: The second-stage shipping fee is estimated at NT$60 per item. Actual cost may vary based on weight or packaging.
 
 ## 🧾 How to Use
 
 1. Open `index.html` in any browser (no backend required)
-2. Enter the USD price of the item
+2. Enter the CAD price of the item
 3. Wait for exchange rate to load (or enter it manually)
 4. Click **Calculate Total**
 5. View a breakdown of service fee and shipping
@@ -39,10 +34,6 @@ This is a lightweight frontend tool to help estimate the **total cost of purchas
 - No frameworks or build tools
 - Built-in resilience: gracefully falls back if exchange rate sources fail
 - DOM parsing to extract rates from fallback HTML when API is down
-
-## 🖼 Preview
-
-> ![alt text](image.png)
 
 ## 👩‍💻 Author
 

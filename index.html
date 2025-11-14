@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>美國 Lululemon 代購試算小工具</title>
+  <title> 🇨🇦 加拿大 Lululemon 代購費用試算小工具</title>
   <style>
     body {
       font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -147,12 +147,12 @@
 </head>
 
 <body>
-  <h1>美國 Lululemon 代購試算</h1>
+  <h1> 🇨🇦 加拿大 Lululemon 代購費用試算</h1>
 
-  <label for="usdPrice">商品金額 (USD)</label>
-  <input type="number" id="usdPrice" placeholder="請輸入商品價格" step="0.01" />
+  <label for="cadPrice">商品金額 (CAD)</label>
+  <input type="number" id="cadPrice" placeholder="請輸入商品價格" step="0.01" />
 
-  <label for="exchangeRate">現金賣出匯率 (USD → TWD)</label>
+  <label for="exchangeRate">現金賣出匯率 (CAD → TWD)</label>
   <div class="input-group">
     <input type="text" id="exchangeRate" readonly placeholder="載入中..." />
     <button class="small-button" onclick="reloadExchangeRate()" id="reloadBtn">重新載入</button>
@@ -163,17 +163,14 @@
   <button onclick="calculate()">計算總費用</button>
 
   <div id="result" style="display:none;">
-    <p>第一階段商品金額（含代購費 x1.2）：NT$<span id="stage1"></span></p>
-    <p>第二階段預估寄送費：NT$<span id="stage2">60</span></p>
-    <hr />
-    <p class="total">總金額預估：約 NT$<span id="total"></span></p>
-    <small>
-      💳 商品金額已自動加入代購服務費（1.2 倍計算）<br />
-      🏷️ 不另外收美國州稅、服務費、匯率手續費等<br />
-      🚚 第二階段費用為單件預估 NT$60<br />
-      若為多件或包裝重量較重，實際寄送費可能會調整，<br />
-      請以實際寄出時費用為準。<br />
 
+    <p class="total">總金額預估：約 NT$<span id="total"></span></p>
+    <hr />
+    <small>
+      👗 總金額包含商品含稅價（聯邦銷售稅GST 5%）加上代購費（10%）<br />
+      🏷️ 不另外服務費、匯率手續費等<br />
+      🚚 運送費用預估 NT$60~150，視重量和通路實收<br />
+      💰 消費單筆滿額 7000 元免運<br />
     </small>
   </div>
 
