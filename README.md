@@ -1,4 +1,4 @@
-# 🇺🇸 Lululemon CA Proxy Purchase Estimator
+# 🇨🇦 Lululemon CA Proxy Purchase Estimator
 
 This is a lightweight frontend tool to help estimate the **total cost of purchasing Lululemon products from the CA** through a proxy (代購). It’s perfect for IG sellers, side hustlers, or anyone helping friends buy overseas.
 
